@@ -1,16 +1,11 @@
 // Napisz funkcję w JavaScript, która przyjmuje ciąg tekstowy (string), usuwa znaki interpunkcyjne oraz ignoruje wielkość liter, a następnie zwraca najczęściej występujące słowo. Jeśli jest kilka słów, które występują najczęściej, zwróć dowolne z nich.
 
-// Wymagania:
-
-// Funkcja powinna ignorować znaki interpunkcyjne, wielkość liter, wydajnie na dużych ciągach znaków.
-// Ciąg tekstowy zawiera co najmniej jedno słowo.
-
 // 1. Przekształcić tekst na małe litery i na to jest metoda w JS
 // 2. Usunać znaki interpunkcyjne
 // 3.Rozbić zdanie na poszczególne wyrazy
-//4. Policzyć litery w każdym wyrazie (dlugośc wyrazu)
-//5. Znaleć wyrazy o takije samej długości
-// 6. Porównać poszczególne litery wyrazów o takije samej długości
+//4. Do obiektu wurazy i ilośc występowania
+//5. Iterujemy po obiekcie i znajdujemy te, co najcześciej występuj i co s najdłuższeZ
+
 
 const mostFrequentWord = (text) => {
     const lowetText = text.toLowerCase()
@@ -21,12 +16,11 @@ const mostFrequentWord = (text) => {
         return "Brak elementów do zliczenia"
     }
 
-    const wordsCount = {}
-    words.forEach(word => {
+    const wordsCount = {
         words.forEach(word => {
-            wordsCount[word] = (wordsCount[word] || 0) + 1
+            wordsCount[word] = wordsCount[word] ? wordsCount[word] + 1 : 1
         })
-    })
+    }
 
     let maxCount = 0
     let theWord = ""
