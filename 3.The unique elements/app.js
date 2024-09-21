@@ -25,11 +25,11 @@ const findUniqueElements = (arr) => {
     // !!! KEY
     for (const key in elementCount) {
         if (elementCount[key] === 1) {
-            oneAppearance.push(parseInt(key)); // parseInt zamienia nam string na liczbę
+            oneAppearance.push(parseInt(key)) // parseInt zamienia nam string na liczbę
         }
     }
 
-    return oneAppearance; // Zwróć tablicę z unikalnymi elementami
+    return oneAppearance // Zwróć tablicę z unikalnymi elementami
 }
 
 const arr = [4, 5, 9, 11, 4, 9, 8, 5];
