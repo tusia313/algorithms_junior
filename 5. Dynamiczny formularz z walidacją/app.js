@@ -34,6 +34,7 @@ return (
                 type="text"
                 name="name"
                 value={formData.name}
+                //Funkcja handleChange jest wywoływana za każdym razem, gdy użytkownik coś wpisze, co pozwala zaktualizować wartość email w stanie formData.
                 onChange={handleChange}
             />
         </div>
