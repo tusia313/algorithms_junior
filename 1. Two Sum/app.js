@@ -21,8 +21,6 @@ const nums = [2, 7, 11, 15]
 const target = 9
 console.log(twoSum(nums, target))
 
-// Sprawdzamy, czy missedNumber znajduje się w obiekcie usedNum.Jeśli tak, oznacza to, że wcześniej napotkaliśmy liczbę, która w połączeniu z obecną liczbą daje target.
-// Jeśli nie, dodajemy bieżącą liczbę i jej indeks do obiektu usedNum.
 // Haszowanie pozwala na szybkie sprawdzenie, czy liczba została już napotkana, co przyspiesza wyszukiwanie w porównaniu do podejścia z dwoma pętlami(które ma złożoność O(n²)).
 // Złożoność czasowa tego rozwiązania to O(n), ponieważ każdy element jest przetwarzany w czasie stałym.
 // To podejście działa dobrze zarówno dla posortowanych, jak i nieposortowanych tablic

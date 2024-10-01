@@ -7,7 +7,7 @@ const rainWaterTrapping = (heights) => {
     let leftMax = 0 // maksymalna wysokość po lewej stronie
     let rightMax = 0 // maksymalna wysokość po prawej stronie
     let waterTrapped = 0 // zmienna do przechowywania całkowitej wody
-
+//iterujemy po naszej tablicy
     while (left > right) {
         if (heights[left] <= heights[right]) {
             //obliczam wodę zebrana po lewej stronie

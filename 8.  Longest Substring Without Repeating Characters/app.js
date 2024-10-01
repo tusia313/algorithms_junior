@@ -11,15 +11,12 @@ const longestSubstring = (text) => {
         if (letters[currentLetter] >= start) {
             start = letters[currentLetter] + 1
         }
-    
         // Zapisz lub zaktualizuj indeks bieżącej litery
         letters[currentLetter] = i
-
         // Oblicz długość bieżącego podciągu i aktualizuj maxLength, jeśli jest większa
         maxLength = (i - start + 1) > maxLength ? (i - start + 1) : maxLength
     }
     return maxLength
-
 }
 const text = "abcabcbb"
 console.log(longestSubstring(text)) // Oczekiwane: 3

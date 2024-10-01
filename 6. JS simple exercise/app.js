@@ -1,10 +1,6 @@
-// 3. Zadanie z JavaScript
-// Opis: Napisz funkcję, która przyjmuje tablicę liczb i zwraca nową tablicę, w której każda liczba jest podniesiona do kwadratu.
-// Użyj metod tablicowych (map, filter).
+//Napisz funkcję, która przyjmuje tablicę liczb i zwraca nową tablicę, w której każda liczba jest podniesiona do kwadratu.
 // Zidentyfikuj i obsłuż potencjalne błędy (np. co zrobić, jeśli tablica zawiera wartości niebędące liczbami).
 // ! (operator negacji): Operator negacji ! zmienia wynik metody every(). Jeśli every() zwraca true (co oznacza, że wszystkie elementy są liczbami), to !true daje false. Jeśli natomiast every() zwraca false (co oznacza, że przynajmniej jeden element nie jest liczbą), to !false daje true.
-
-// Całe wyrażenie:
 // !numbers.every(num => typeof num === 'number'): To wyrażenie zwraca true, jeśli co najmniej jeden element w tablicy numbers nie jest liczbą, a false, jeśli wszystkie są liczbami.
 
 const ourFunction = (numbers) => {

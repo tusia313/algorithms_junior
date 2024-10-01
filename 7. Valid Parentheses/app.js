@@ -1,7 +1,6 @@
 //Masz daną sekwencję nawiasów, która zawiera tylko znaki: '(', ')', '{', '}', '[', i ']'. Twoim zadaniem jest napisać funkcję, która sprawdzi, czy dana sekwencja nawiasów jest poprawnie zbalansowana.
 //Poprawna sekwencja nawiasów oznacza, że: ażdy otwierający nawias ma odpowiadający zamykający nawias tego samego typu ORAZ nawiasy muszą być zamykane w poprawnej kolejności.
 //STOS
-
 const checkParens = (bracket) => {
     // Warunek brzegowy - jeśli długość jest nieparzysta, od razu zwróć false
     if (bracket.length % 2 !== 0) {

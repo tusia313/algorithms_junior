@@ -6,16 +6,13 @@
 // Warunki brzegowe:
 // Jeśli n jest mniejsze niż 0, funkcja powinna zwrócić null lub inny komunikat o błędzie.
 
-
 const fibonacci = (number) => {
-
     if (!Number.isInteger(number)) {
         return "Błąd: liczba musi być liczbą całkowitą." // komunikat o błędzie
     }
     if (number < 0) {
         return "Bład. Liczba musi być mniejsza lub równa 0"
     }
-
     if (number === 0) return 0
     if (number === 1) return 1
 
@@ -23,7 +20,6 @@ const fibonacci = (number) => {
         0: 0,
         1: 1
     }
-
     // granica to NUMBER
     for (let i = 2; i <= number; i++) {
         fibonacciObject[i] = fibonacciObject[i - 1] + fibonacciObject[i - 2]
@@ -31,9 +27,6 @@ const fibonacci = (number) => {
 
     return fibonacciObject[number]
 }
-
-
-
 console.log(fibonacci(0)) // 0
 console.log(fibonacci(1)) // 1
 console.log(fibonacci(5)) // 5
