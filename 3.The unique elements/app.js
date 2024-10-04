@@ -4,7 +4,9 @@ const findUniqueElements = (arr) => {
     if (arr.length === 0) {
         return [] 
     }
-    const elementCount = {};
+    const elementCount = {
+
+    }
     arr.forEach(el => {
         elementCount[el] = elementCount[el] ? elementCount[el] + 1 : 1;
     })
@@ -16,7 +18,7 @@ const findUniqueElements = (arr) => {
             oneAppearance.push(parseInt(key)) // parseInt zamienia nam string na liczbę
         }
     }
-    return oneAppearance // Zwróć tablicę z unikalnymi elementami
+    return oneAppearance // Zwróć tablicę z unikalnymi elementami, jest na samym końcu
 }
 
 const arr = [4, 5, 9, 11, 4, 9, 8, 5];

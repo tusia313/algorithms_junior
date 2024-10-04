@@ -16,6 +16,7 @@ const mostFrequentWord = (text) => {
     }
     const wordsCount = {
         words.forEach(word => {
+            //tak wyglada nasz obiekt
             wordsCount[word] = wordsCount[word] ? wordsCount[word] + 1 : 1
         })
     }

@@ -24,7 +24,6 @@ const findPairs = (nums, target) => {
     }
     return results
 }
-
 const nums = [1, 2, 3, 4, 5, 6, 7]
 const target = 8 //[[2,4]]
 console.log(findPairs(nums, target))
