@@ -25,6 +25,7 @@ const mostFrequentWord = (text) => {
 
     for (const word in wordsCount) {
         if (wordsCount[word] > maxCount) {
+            //następuje przypisanie!!
             maxCount = wordsCount[word]
             theWord = word
         }

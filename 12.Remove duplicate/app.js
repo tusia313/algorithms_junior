@@ -1,9 +1,4 @@
-
 //You are given a sorted array nums. Your task is to remove the duplicates in-place (without using extra space for another array) so that each unique element appears only once. Return the length of the modified array.
-Dlaczego nums[uniqueIndex] = nums[i]; jest potrzebne?
-uniqueIndex zaczyna od 0, co oznacza, że pierwszy element tablicy zawsze jest unikalny, więc go nie zmieniamy.
-Gdy natrafimy na nowy unikalny element nums[i], chcemy go umieścić na następnej pozycji po ostatnim unikalnym elemencie (czyli tam, gdzie wskazuje uniqueIndex).
-nums[uniqueIndex] = nums[i]; to instrukcja, która kopiuje nowy unikalny element do miejsca, które jest odpowiednie dla unikalnych elementów, przesuwając je w lewo, tam gdzie wcześniej były duplikaty.
 
 const removeDuplicates = (nums) => {
     if (nums.length === 0) return 0 
