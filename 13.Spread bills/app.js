@@ -14,7 +14,7 @@ const expenses = [
     amount: 10,
   }
 ]
-console.log(expenses[1].amount)
+// console.log(expenses[1].amount)
 
 const divideExpenses = (expenses) => {
   const howManyPersons = expenses.length
@@ -24,14 +24,31 @@ const divideExpenses = (expenses) => {
   }
   const averageAmount = wholeAmount / howManyPersons
 
+  let underAverageAmount = []
+  let aboveAverageAmount = []
+for (let i =0; i < howManyPersons; i++) {
+  if (expenses[i].amount < averageAmount) {
+    underAverageAmount.push(expenses[i])
+  } else {
+    aboveAverageAmount.push(expenses[i])
+  }
+}
 
-  return transactions = [
-    {
-      from: ,
-      to: ,
-      amount:
-    }
-  ]
+let transactions = []
+
+for (let i = 0; i < aboveAverageAmount.length; i++) {
+  
+  let balance = aboveAverageAmount[i].amount - averageAmount
+  console.log(balance)
+}
+
+  // return transactions = [
+  //   {
+  //     from: ,
+  //     to: ,
+  //     amount:
+  //   }
+  // ]
 }
 
 console.log(divideExpenses(expenses))
