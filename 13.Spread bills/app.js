@@ -24,31 +24,53 @@ const divideExpenses = (expenses) => {
   }
   const averageAmount = wholeAmount / howManyPersons
 
-  let underAverageAmount = []
-  let aboveAverageAmount = []
-for (let i =0; i < howManyPersons; i++) {
-  if (expenses[i].amount < averageAmount) {
-    underAverageAmount.push(expenses[i])
-  } else {
-    aboveAverageAmount.push(expenses[i])
+  //tablice przechowujace obiekty {person:, balance:}
+  const underAverageAmount = []
+  const aboveAverageAmount = []
+
+  for (let i = 0; i < howManyPersons; i++) {
+    const person = expenses[i]
+    const balance = person.amount - averageAmount
+
+    if (balance > 0) {
+      //dodajemy obiekt do tablicy
+      aboveAverageAmount.push({ person: person.person, balance })
+    } else if (balance < 0) {
+      underAverageAmount.push({ person: person.person, balance })
+    }
   }
-}
+  console.log(aboveAverageAmount)
+  console.log(underAverageAmount)
+  let transaction = []
 
-let transactions = []
+  for (let i = 0; i < underAverageAmount.length; i++) {
+    let debtor = underAverageAmount[i]
+    for (let j = 0; j < aboveAverageAmount.length; j++) {
+      let creditor = aboveAverageAmount[i]
 
-for (let i = 0; i < aboveAverageAmount.length; i++) {
-  
-  let balance = aboveAverageAmount[i].amount - averageAmount
-  console.log(balance)
-}
+      let payment = creditor.balance - debtor.balance
+      console.log(payment)
+      if (creditor.balance > 0 && debtor.balance < 0) {
+        //dodanie transakcji
+        transaction.push([
+          {
+            from: debtor.person,
+            to: creditor.person,
+            amount: creditor.balance
+          }
+        ])
+        // aktualizacja finansów, bo naczej będziemy przypisywać to do tego samegi
+        creditor.balance =- payment
+        debtor.balance =+ payment
+      }
+      // jeśli dłuznik spłaci wszystko, przejdź do następnego
+      if (payment === 0){
+        break;
+      }
+    }
+  }
+return transaction
 
-  // return transactions = [
-  //   {
-  //     from: ,
-  //     to: ,
-  //     amount:
-  //   }
-  // ]
 }
 
 console.log(divideExpenses(expenses))
