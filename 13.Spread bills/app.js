@@ -59,7 +59,7 @@ const divideExpenses = (expenses) => {
             amount: creditor.balance
           }
         ])
-        // aktualizacja finansów, bo naczej będziemy przypisywać to do tego samegi
+        // aktualizacja finansów, jkaby jeden zyskuje to, co mu oddał typ, a typ traci to , co oddał ;)
         creditor.balance =- payment
         debtor.balance =+ payment
       }
