@@ -18,6 +18,7 @@ const expenses = [
 
 const divideExpenses = (expenses) => {
   const howManyPersons = expenses.length
+
   let wholeAmount = 0
   for (let i = 0; i < howManyPersons; i++) {
     wholeAmount += expenses[i].amount
@@ -29,18 +30,18 @@ const divideExpenses = (expenses) => {
   const aboveAverageAmount = []
 
   for (let i = 0; i < howManyPersons; i++) {
-    const person = expenses[i]
-    const balance = person.amount - averageAmount
+    const person = expenses[i] // iterujemy po obiektach
+    const balance = person.amount - averageAmount // ile każdy jest dłużny
 
     if (balance > 0) {
       //dodajemy obiekt do tablicy
-      aboveAverageAmount.push({ person: person.person, balance })
+      aboveAverageAmount.push({ person: person.person, balance: balance })
     } else if (balance < 0) {
-      underAverageAmount.push({ person: person.person, balance })
+      underAverageAmount.push({ person: person.person, balance: balance })
     }
   }
-  console.log(aboveAverageAmount)
-  console.log(underAverageAmount)
+  console.log("Above average amount: ", aboveAverageAmount)
+  
   let transaction = []
 
   for (let i = 0; i < underAverageAmount.length; i++) {
