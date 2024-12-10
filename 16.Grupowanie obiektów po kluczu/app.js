@@ -6,6 +6,25 @@ const orders = [
     { orderId: 4, status: "shipped" },
     { orderId: 5, status: "pending" }
 ]
+// console.log("statusy zamowien ", orders)
+
+const groupOrders = (orders) => {
+
+    let tasks = {
+    
+    }
+    // console.log("task comelted ", tasks.completed)
+
+    orders.forEach(order => {
+        if (!tasks[order.status]) {
+            tasks[order.status] = []
+        }
+        tasks[order.status].push(order)
+    })
+    return tasks
+}
+
+console.log(groupOrders(orders))
 //Twoim zadaniem jest napisanie funkcji, która grupuje zamówienia po ich statusie, aby wynik wyglądał tak:
 //  output:
 //  {
