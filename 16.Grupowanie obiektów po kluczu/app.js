@@ -25,10 +25,27 @@ const groupOrders = (orders) => {
 }
 
 console.log(groupOrders(orders))
-//Twoim zadaniem jest napisanie funkcji, która grupuje zamówienia po ich statusie, aby wynik wyglądał tak:
-//  output:
-//  {
-//     completed: [ { orderId: 1, status: "completed" }, { orderId: 3, status: "completed" } ],
-//     pending: [ { orderId: 2, status: "pending" }, { orderId: 5, status: "pending" } ],
-//     shipped: [ { orderId: 4, status: "shipped" } ]
-//   }
+//lub alternatywnie:
+// const groupOrders = (orders) => {
+
+//     let tasks = {
+//         completed: [],
+//         pending: [],
+//         shipped: []
+//     }
+//     // console.log("task comelted ", tasks.completed)
+
+//     orders.map((order, index) => {
+//         console.log(order.status)
+//         if (order.status === "completed") {
+//             tasks.completed.push(order)
+//         }
+//         else if(order.status === "pending"){
+//             tasks.pending.push(order)
+//         }
+//         else {
+//             tasks.shipped.push(order)
+//         }
+//     })
+//     return tasks
+// }
