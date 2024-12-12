@@ -1,82 +1,25 @@
 //A group of friends went on a trip. Each person paid individually for various things on the trip; some people paid more, some people paid less. After they came back, they wanted to split the costs evenly.Implement a solution to calculate a list of payment transactions to clear the outstanding debts.
 
 const expenses = [
-  {
-    person: 'Alice',
-    amount: 20,
-  },
-  {
-    person: 'Bob',
-    amount: 30,
-  },
-  {
-    person: 'Mike',
-    amount: 10,
-  }
+  { person: 'Alice', amount: 25 },
+  { person: 'Bob', amount: 15 },
+  { person: 'Mike', amount: 10 },
+  { person: 'Eve', amount: 50 }
 ]
-// console.log(expenses[1].amount)
+console.log("amount: ", expenses.amount)
 
 const divideExpenses = (expenses) => {
-  const howManyPersons = expenses.length
-
-  let wholeAmount = 0
-  for (let i = 0; i < howManyPersons; i++) {
-    wholeAmount += expenses[i].amount
-  }
-  const averageAmount = wholeAmount / howManyPersons
-
-  //tablice przechowujace obiekty {person:, balance:}
-  const underAverageAmount = []
-  const aboveAverageAmount = []
-
-  for (let i = 0; i < howManyPersons; i++) {
-    const person = expenses[i] // iterujemy po obiektach
-    const balance = person.amount - averageAmount // ile każdy jest dłużny
-
-    if (balance > 0) {
-      //dodajemy obiekt do tablicy
-      aboveAverageAmount.push({ person: person.person, balance: balance })
-    } else if (balance < 0) {
-      underAverageAmount.push({ person: person.person, balance: balance })
-    }
-  }
-  console.log("Above average amount: ", aboveAverageAmount)
-  
-  let transaction = []
-
-  for (let i = 0; i < underAverageAmount.length; i++) {
-    let debtor = underAverageAmount[i]
-    for (let j = 0; j < aboveAverageAmount.length; j++) {
-      let creditor = aboveAverageAmount[i]
-
-      let payment = creditor.balance - debtor.balance
-      console.log(payment)
-      if (creditor.balance > 0 && debtor.balance < 0) {
-        //dodanie transakcji
-        transaction.push([
-          {
-            from: debtor.person,
-            to: creditor.person,
-            amount: creditor.balance
-          }
-        ])
-        // aktualizacja finansów, jkaby jeden zyskuje to, co mu oddał typ, a typ traci to , co oddał ;)
-        creditor.balance =- payment
-        debtor.balance =+ payment
-      }
-      // jeśli dłuznik spłaci wszystko, przejdź do następnego
-      if (payment === 0){
-        break;
-      }
-    }
-  }
-return transaction
-
+  const totalPerson = expenses.length
+  let totalAmount = 0
+  expenses.forEach(exp => 
+    {totalAmount += exp.amount
+})
+const oneAmount = totalAmount / totalPerson
+  let underAmount = []
+  let overAmount = []
 }
 
 console.log(divideExpenses(expenses))
-
-
 
 // {
 //   from: 'Mike',

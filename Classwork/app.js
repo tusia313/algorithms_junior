@@ -1,24 +1,60 @@
-// Masz daną tablicę liczb całkowitych nums oraz liczbę całkowitą target. Twoim zadaniem jest znalezienie dwóch indeksów liczb w tablicy, które sumują się do target.
-// Każdy zestaw liczb w tablicy nums będzie miał dokładnie jedno rozwiązanie.
-// Możesz założyć, że ten sam element nie może być użyty więcej niż raz.
-// Zadanie: Napisz funkcję twoSum(nums, target), która zwróci tablicę z dwoma indeksami liczb, które sumują się do target.
+const howManyPersons = expenses.length
 
-const twoSum = (nums, target) => {
-    const searchedNums = {} //obiekt do przechowywanie liczb z indeksami
-    for (let i = 0; i < nums.length; i++) {
-        const firstNumber = nums[i]
-        const secondNumber = target - firstNumber
-       if (secondNumber in searchedNums) {
-        //WAŻNE : zwraca INDEKS drugiej liczby (zwroc uwage na zapis!) i indeks pierwszej, czyli tej, po ktorej iterujemy
-            return [searchedNums[secondNumber], i]
-       }
-       // WAŻNE dwa: zobacz, jak dodajemy liczbe do obiektu
-       searchedNums[firstNumber] = i
+  let wholeAmount = 0
+  for (let i = 0; i < howManyPersons; i++) {
+    wholeAmount += expenses[i].amount
+  }
+  const averageAmount = wholeAmount / howManyPersons
+
+  //tablice przechowujace obiekty {person:, balance:}
+  const underAverageAmount = []
+  const aboveAverageAmount = []
+
+  for (let i = 0; i < howManyPersons; i++) {
+    const person = expenses[i] // iterujemy po obiektach
+    const balance = person.amount - averageAmount // ile każdy jest dłużny
+
+    if (balance > 0) {
+      //dodajemy obiekt do tablicy
+      aboveAverageAmount.push({ person: person.person, balance: balance })
+    } else if (balance < 0) {
+      underAverageAmount.push({ person: person.person, balance: balance })
     }
+  }
+  console.log("Above average amount: ", aboveAverageAmount)
+  
+  let transaction = []
+
+  for (let i = 0; i < underAverageAmount.length; i++) {
+    let debtor = underAverageAmount[i]
+    for (let j = 0; j < aboveAverageAmount.length; j++) {
+      let creditor = aboveAverageAmount[i]
+
+      let payment = creditor.balance - debtor.balance
+      console.log(payment)
+      if (creditor.balance > 0 && debtor.balance < 0) {
+        //dodanie transakcji
+        transaction.push([
+          {
+            from: debtor.person,
+            to: creditor.person,
+            amount: creditor.balance
+          }
+        ])
+        // aktualizacja finansów, jkaby jeden zyskuje to, co mu oddał typ, a typ traci to , co oddał ;)
+        creditor.balance =- payment
+        debtor.balance =+ payment
+      }
+      // jeśli dłuznik spłaci wszystko, przejdź do następnego
+      if (payment === 0){
+        break;
+      }
+    }
+  }
+return transaction
+
 }
 
-const nums = [2, 7, 11, 15]
-const target = 9
-console.log(twoSum(nums, target))
+console.log(divideExpenses(expenses))
 
 
