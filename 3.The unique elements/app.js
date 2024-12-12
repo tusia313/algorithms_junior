@@ -8,7 +8,7 @@ const findUniqueElements = (arr) => {
 
     }
     arr.forEach(el => {
-        elementCount[el] = elementCount[el] ? elementCount[el] + 1 : 1;
+        elementCount[el] = elementCount[el] ? elementCount[el] + 1 : 1
     })
     // Tworzenie tablicy z unikalnymi elementami
     const oneAppearance = []

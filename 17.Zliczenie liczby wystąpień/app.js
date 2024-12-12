@@ -8,10 +8,19 @@ const products = [
     { name: "Shoes", category: "Clothing" }
 ]
 
-const numberOfProducts = (products) => {
+const numberOfProductsCalculation = (products) => {
+    let numOfProduct = {
+
+    }
+
+    products.forEach(product => {
+            numOfProduct[product.category] = numOfProduct[product.category] ? numOfProduct[product.category] + 1 : 1
+        }
+    )
+    return numOfProduct
 
 }
-console.log(numberOfProducts(products))
+console.log("Wynik końcowy: ", numberOfProductsCalculation(products))
 // {
 //     Electronics: 3,
 //     Clothing: 3
