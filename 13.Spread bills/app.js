@@ -11,12 +11,37 @@ console.log("amount: ", expenses.amount)
 const divideExpenses = (expenses) => {
   const totalPerson = expenses.length
   let totalAmount = 0
-  expenses.forEach(exp => 
-    {totalAmount += exp.amount
-})
-const oneAmount = totalAmount / totalPerson
+  expenses.forEach(exp => {
+    totalAmount += exp.amount
+  })
+  const oneAmount = totalAmount / totalPerson
+  console.log("one amount: ", oneAmount)
   let underAmount = []
   let overAmount = []
+
+  for (let i = 0; i < totalPerson; i++) {
+
+    if (expenses[i].amount >= oneAmount) {
+      overAmount.push(expenses[i])
+    }
+    else {
+      underAmount.push(expenses[i])
+    }
+    expenses[i]++
+  }
+
+  console.log("under: ", underAmount)
+  console.log("over: ", overAmount)
+}
+let transaction = {
+
+}
+for (let i = 0; i < underAmount.length; i++) {
+  let debtor = underAmount[i]
+  for (let j = 0; j < overAmount.length; j++) {
+    let creditor = overAmount[j]
+    let payment = creditor.amount - debtor.amount
+  }
 }
 
 console.log(divideExpenses(expenses))
